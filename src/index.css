@@ -1,6 +1,11 @@
 .link-tool {
   position: relative;
 
+  &__fake-input {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   &__input {
     padding-left: 38px;
     /*background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00IDIwVjRIMjBWMjBINFpNNSA1SDE5VjE5SDVWNVpNOC41OTMyNiA5LjMyOTE2SDE0LjIxTDguNjAzIDE0LjkzNjJMOS4zMTAxIDE1LjY0MzNMMTQuOTA2NyAxMC4wNDY3VjE1LjUzMjdIMTUuOTA2N1Y4LjMyOTE2SDguNTkzMjZWOS4zMjkxNloiIGZpbGw9IiMyMTIxMzIiLz4KPC9zdmc+");*/

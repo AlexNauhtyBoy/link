@@ -110,6 +110,7 @@ export default class LinkTool {
     this.nodes.inputHolder = this.makeInputHolder();
     this.nodes.inputHolder.prepend(this.nodes.img);
     this.nodes.linkContent = this.prepareLinkPreview();
+    this.nodes.fakeInput = this.make('input', 'link-tool__fake-input');
     //
     /**
      * If Tool already has data, render link preview, otherwise insert input
@@ -122,6 +123,7 @@ export default class LinkTool {
     }
 
     this.nodes.wrapper.appendChild(this.nodes.container);
+    this.nodes.wrapper.appendChild(this.nodes.fakeInput);
 
     if (this.nodes.container.firstChild.attributes.getNamedItem('href')) {
       const getWrapperUrlAttr = this.nodes.container.firstChild.attributes.getNamedItem('href').value;
@@ -174,6 +176,7 @@ export default class LinkTool {
        * Tool's classes
        */
       container: 'link-',
+      fakeInput: 'link-tool__fake-input',
       inputEl: 'link-tool__input',
       inputHolder: 'link-tool__input-holder',
       inputError: 'link-tool__input-holder--error',
@@ -199,6 +202,9 @@ export default class LinkTool {
     this.nodes.progress = this.make('label', this.CSS.progress);
     this.nodes.input = this.make('div', [this.CSS.input, this.CSS.inputEl], {
       contentEditable: true
+    });
+    this.nodes.fakeInput = this.make('div', [ this.CSS.fakeInput ], {
+      contentEditable: false
     });
 
     this.nodes.input.dataset.placeholder = 'Enter link';
@@ -491,9 +497,11 @@ export default class LinkTool {
       /**
        * Paste URL of image into the Editor
        */
-      // patterns: {
-      //   image: /https?:\/\/\S+\.(gif|jpe?g|tiff|png)$/i
-      // }
+      /*
+       * patterns: {
+       *   image: /https?:\/\/\S+\.(gif|jpe?g|tiff|png)$/i
+       * }
+       */
 
       /**
        * Drag n drop file from into the Editor
